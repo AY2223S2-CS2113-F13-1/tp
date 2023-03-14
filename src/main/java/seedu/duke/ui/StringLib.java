@@ -1,6 +1,10 @@
 package seedu.duke.ui;
 
 public interface StringLib {
+    String ADD_COMMAND_FORMAT = "\"add n/<insert recipe name> "
+            + "i/<insert ingredients with \\\", \\\" separation> \"\n"
+            + "\"t/<insert cuisine>\\\"\\n\"\n"
+            + "\"Example use : \\\"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\\\" \\n \\n\"";
     String LOGO = "_____         _         _____  __  ___  ___                _         _______ "
             + "________  ____\n"
             + "|_   _|       | |       |  _  |/ _| |  \\/  |               ( )       / /_   _|  _  |  \\/  \\ \\\n"
@@ -10,14 +14,20 @@ public interface StringLib {
             + "  \\_/\\__,_|___/\\__\\___|  \\___/|_|   \\_|  |_/\\___/|_| |_| |_| |___/  | |  \\_/  \\___/\\_|  |_/| |"
             + "\n"
             + "                                                                     \\_\\                  /_/\n";
+    String EDIT_COMMAND_FORMAT = "\"edit n/<insert recipe name>\"\n";
+    String VIEW_RECIPE_FORMAT = "\"view n/<insert recipe name>\" or \"view <insert recipe index on list>\" \n";
+    String FIND_COMMAND_FORMAT = "\"find <insert keywords>\" \n";
+    String DELETE_COMMAND_FORMAT = "\"delete <insert recipe index number>\" \n";
+    String CLEAR_COMMAND_FORMAT = "\"clear\" \n";
+    String EXIT_COMMAND_FORMAT = "\"exit\" \n";
     String WELCOME_MESSAGE = "\nHELLLOO there! I am\n "
             + LOGO + '\n'
             + "Your personal recipes assistant!\n"
             + "What can I do for you today?\n\n"
             + "You can start by adding recipes to a recipe list that I can generate,"
             + " simply follow the format below:\n\n"
-            + "Add recipe : \"add n/<insert recipe name> i/<insert ingredients with \", \" separation> "
-            + "t/<insert cuisine>\"\n\n"
+            + "Add recipe : "
+            + ADD_COMMAND_FORMAT
             + "If you wish to view the full list of commands, simply type \"help\"!\n";
     String HELP = "\nHelp is here! You may find the list of commands below useful. \n \n \n"
             + "COMMANDS LIST: \n \n \n"
@@ -27,35 +37,41 @@ public interface StringLib {
             + "Example use : \"list\" \n \n"
             + "## Add ## \n"
             + "Description : Adds a new recipe to the list. \n"
-            + "Format      : \"add n/<insert recipe name> i/<insert ingredients with \", \" separation> "
-            + "t/<insert cuisine>\"\n"
+            + "Format      : "
+            + ADD_COMMAND_FORMAT
             + "Example use : \"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\" \n \n"
             + "## Edit ## \n"
             + "Description : Edits a recipe in the list. \n"
-            + "Format      : \"edit n/<insert recipe name>\"\n"
+            + "Format      : "
+            + EDIT_COMMAND_FORMAT
             + "Example use : \"edit n/Hotpot\" \n \n"
             + "## View ## \n"
             + "Description : Displays the details of a particular recipe from the recipe list. "
             + "Requires either the recipe name or index as the input. \n"
-            + "Format      : \"view n/<insert recipe name>\" or \"view <insert recipe index on list>\" \n"
+            + "Format      : "
+            + VIEW_RECIPE_FORMAT
             + "Example use : \"view n/Hotpot\" or \"view 1\" \n \n"
             + "## Find ## \n"
-            + "Description : Finds all recipes names containing keywords inputted in the description. "
+            + "Description : Finds all recipes names containing input keywords in the description. "
             + "Requires keywords as an input. \n"
-            + "Format      : \"find <insert keywords>\" \n"
+            + "Format      : "
+            + FIND_COMMAND_FORMAT
             + "Example use : \"find sushi\" \n \n"
             + "## Delete ## \n"
             + "Description : Removes a recipe from the recipe list, if it exists. "
             + "Requires the recipe index on the list as an input. \n"
-            + "Format      : \"delete <insert recipe index number>\" \n"
+            + "Format      : "
+            + DELETE_COMMAND_FORMAT
             + "Example use : \"delete 10\" \n \n"
             + "## Clear ## \n"
             + "Description : Deletes all existing recipes that are stored on the recipe manager. \n"
-            + "Format      : \"clear\" \n"
+            + "Format      : "
+            + CLEAR_COMMAND_FORMAT
             + "Example use : \"clear\" \n \n"
             + "## Exit ## \n"
             + "Description : Ends the programme. See you next time! \n"
-            + "Format      : \"exit\" \n"
+            + "Format      : "
+            + EXIT_COMMAND_FORMAT
             + "Example use : \"exit\" \n \n \n"
             + "Hope this list has been informational to you! \n";
     String EXIT_MESSAGE = "\nBye. Hope to see you again soon!\n";
@@ -102,8 +118,6 @@ public interface StringLib {
             + "\nException occurred: ";
     String LINE = "__________________________________________________________";
 
-    String ADD_COMMAND_FORMAT = "\"Format      : \\\"add n/<insert recipe name> i/<insert ingredients with \\\", \\\" separation> \"\n"
-            + "\"t/<insert cuisine>\\\"\\n\"\n"
-            + "\"Example use : \\\"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\\\" \\n \\n\"";
+
 
 }
