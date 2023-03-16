@@ -107,6 +107,10 @@ public class Ui {
     public static void showLine() {
         System.out.println(LINE);
     }
+    public static void showStepsInputPrompt() {
+        System.out.println("Please type in the step description and enter to move to the next step."
+                + "\n If you are done, please type \"end\"");
+    }
     public static void showDudeMainError(Exception e) {
         if (e instanceof IOException) {
             System.out.println(FILE_IO_ERROR + e);

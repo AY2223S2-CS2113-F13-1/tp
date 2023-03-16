@@ -110,6 +110,8 @@ public class Parser {
         StepList tempStepList = new StepList();
         String userInput;
         boolean hasInputAllSteps = false;
+
+        Ui.showStepsInputPrompt();
         while (!hasInputAllSteps) {
             userInput = Ui.readNextLine();
             if (userInput.equals(STEPSINPUT_END)) {

@@ -18,8 +18,8 @@ What can I do for you today?
 
 You can start by adding recipes to a recipe list that I can generate, simply follow the format below:
 
-Add recipe : "add n/<insert recipe name> i/<insert ingredients with ", " separation> t/<insert cuisine>"
-
+Add recipe : "add n/<insert recipe name>i/<insert ingredients with ", " separation> t/<insert cuisine>"
+"Example use : "add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese"
 If you wish to view the full list of commands, simply type "help"!
 
 __________________________________________________________

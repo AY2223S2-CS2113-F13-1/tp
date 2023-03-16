@@ -1,10 +1,10 @@
 package seedu.duke.ui;
 
 public interface StringLib {
-    String ADD_COMMAND_FORMAT = "\"add n/<insert recipe name> "
-            + "i/<insert ingredients with \\\", \\\" separation> \"\n"
-            + "\"t/<insert cuisine>\\\"\\n\"\n"
-            + "\"Example use : \\\"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\\\" \\n \\n\"";
+    String ADD_COMMAND_FORMAT = "\"add n/<insert recipe name>"
+            + "i/<insert ingredients with \", \" separation>"
+            + " t/<insert cuisine>\"\n"
+            + "\"Example use : \"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\"\n";
     String LOGO = "_____         _         _____  __  ___  ___                _         _______ "
             + "________  ____\n"
             + "|_   _|       | |       |  _  |/ _| |  \\/  |               ( )       / /_   _|  _  |  \\/  \\ \\\n"
@@ -121,4 +121,5 @@ public interface StringLib {
     String RECIPE_NONEXISTENT_ERROR = "\nError in viewing recipe!"
             + "\nException occurred: ";
     int NOTFOUND_INDEX = -99;
+
 }
