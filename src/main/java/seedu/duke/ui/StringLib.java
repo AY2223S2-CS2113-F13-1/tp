@@ -118,6 +118,7 @@ public interface StringLib {
             + "\nException occurred: ";
     String LINE = "__________________________________________________________";
 
-
-
+    String RECIPE_NONEXISTENT_ERROR = "\nError in viewing recipe!"
+            + "\nException occurred: ";
+    int NOTFOUND_INDEX = -99;
 }

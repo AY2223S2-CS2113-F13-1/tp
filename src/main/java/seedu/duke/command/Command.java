@@ -2,10 +2,12 @@ package seedu.duke.command;
 
 
 import seedu.duke.exceptions.IncompleteInputException;
+import seedu.duke.exceptions.NonexistentRecipeException;
 import seedu.duke.parser.Parser;
 import seedu.duke.recipe.IngredientList;
 import seedu.duke.recipe.Recipe;
 import seedu.duke.recipe.RecipeList;
+import seedu.duke.recipe.StepList;
 import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
@@ -65,7 +67,7 @@ public class Command {
                 String recipeName = parsed.get(0);
                 IngredientList ingredientLists = Parser.parseIngredients(parsed.get(1));
                 String recipeTag = parsed.get(2);
-                ArrayList<String> recipeSteps = new ArrayList<>();
+                StepList recipeSteps = Parser.parseRecipeSteps();
                 recipeList.addNewRecipe(new Recipe(recipeName, recipeTag, ingredientLists, recipeSteps));
                 Ui.showRecipeAdded(recipeList.getNewestRecipe(), recipeList.getCurrRecipeNumber());
             } catch (Exception e) {
@@ -78,13 +80,27 @@ public class Command {
                     throw new IncompleteInputException("The index of " + type + " cannot be empty.\n");
                 }
                 recipeListIndex = Integer.parseInt(fullDescription);
-                Recipe recipeToBeDeleted = recipeList.getRecipeFromList(recipeListIndex);
+                Recipe recipeToBeDeleted = recipeList.getRecipeFromList(recipeListIndex - 1);
                 Ui.showRecipeDeleted(recipeToBeDeleted, recipeList.getCurrRecipeNumber() - 1);
                 recipeList.removeRecipe(recipeListIndex);
             } catch (Exception e) {
                 Ui.showDeletingTaskErrorMessage(e, type);
             }
             break;
+        case VIEW:
+            try {
+            String recipeName = Ui.readNextLine();
+            Recipe currRecipe;
+            int recipeIndex = recipeList.findRecipeIndex(recipeName);
+            if (recipeIndex < 0) {
+                throw new NonexistentRecipeException(recipeName);
+            }
+            currRecipe = recipeList.getRecipeFromList(recipeIndex);
+            Ui.showRecipe(currRecipe);
+            break;
+            } catch (Exception e) {
+                Ui.showInvalidRecipeMessage(e);
+            }
         case FIND:
             try {
                 ArrayList<Recipe> findRecipeResults = new ArrayList<>();

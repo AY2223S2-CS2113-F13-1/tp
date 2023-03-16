@@ -5,6 +5,9 @@ import seedu.duke.command.CommandType;
 import seedu.duke.exceptions.IncompleteInputException;
 import seedu.duke.recipe.Ingredient;
 import seedu.duke.recipe.IngredientList;
+import seedu.duke.recipe.Step;
+import seedu.duke.recipe.StepList;
+import seedu.duke.ui.Ui;
 
 import java.util.ArrayList;
 
@@ -15,6 +18,7 @@ public class Parser {
     private static final String RECIPE_MISSING_NAME = "Recipe is missing \"NAME\"!\n";
     private static final String RECIPE_MISSING_INGREDIENTS = "Recipe is missing \"INGREDIENTS\"!\n";
     private static final String RECIPE_MISSING_TAG = "Recipe is missing \"TAG\"!\n";
+    public static final String STEPSINPUT_END = "end";
 
 
     /**
@@ -102,4 +106,19 @@ public class Parser {
         return new IngredientList(parsed);
     }
 
+    public static StepList parseRecipeSteps() {
+        StepList tempStepList = new StepList();
+        String userInput;
+        boolean hasInputAllSteps = false;
+        while (!hasInputAllSteps) {
+            userInput = Ui.readNextLine();
+            if (userInput.equals(STEPSINPUT_END)) {
+                hasInputAllSteps = true;
+            } else {
+                Step tempStep = new Step(userInput);
+                tempStepList.addStep(tempStep);
+            }
+        }
+        return tempStepList;
+    }
 }

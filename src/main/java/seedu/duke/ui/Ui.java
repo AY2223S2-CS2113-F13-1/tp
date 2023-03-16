@@ -4,43 +4,23 @@ import seedu.duke.command.CommandType;
 import seedu.duke.exceptions.FileParseReadingException;
 import seedu.duke.exceptions.IncompleteInputException;
 import seedu.duke.exceptions.RecipeListEmptyError;
+import seedu.duke.recipe.IngredientList;
 import seedu.duke.recipe.Recipe;
-
-import static seedu.duke.ui.StringLib.CREATING_NEW_FILE_AND_DIRECTORY;
-import static seedu.duke.ui.StringLib.DUDE_MAIN_ERROR;
-import static seedu.duke.ui.StringLib.EMPTY_LIST_MESSAGE;
-import static seedu.duke.ui.StringLib.EXIT_MESSAGE;
-import static seedu.duke.ui.StringLib.FILE_IO_ERROR;
-import static seedu.duke.ui.StringLib.FILE_LOADING_DEFAULT_ERROR;
-import static seedu.duke.ui.StringLib.FILE_NOT_FOUND_ERROR;
-import static seedu.duke.ui.StringLib.FILE_PARSE_READING_ERROR;
-import static seedu.duke.ui.StringLib.FIND_LIST_MESSAGE;
-import static seedu.duke.ui.StringLib.HELP;
-import static seedu.duke.ui.StringLib.LINE;
-import static seedu.duke.ui.StringLib.MISSING_DESCRIPTION_ERROR;
-import static seedu.duke.ui.StringLib.MISSING_INPUTS_ERROR;
-import static seedu.duke.ui.StringLib.NO_MATCHING_FIND_RESULTS_MESSAGE;
-import static seedu.duke.ui.StringLib.PARSING_STRING_ERROR;
-import static seedu.duke.ui.StringLib.PREFIX_EMPTY_LIMIT_LIST_ERROR;
-import static seedu.duke.ui.StringLib.RECIPE_ADDING_DEFAULT_ERROR;
-import static seedu.duke.ui.StringLib.RECIPE_DELETING_DEFAULT_ERROR;
-import static seedu.duke.ui.StringLib.RECIPE_FINDING_DEFAULT_ERROR;
-import static seedu.duke.ui.StringLib.SUFFIX_EMPTY_LIMIT_LIST_ERROR;
-import static seedu.duke.ui.StringLib.UNRECOGNIZABLE_COMMAND_ERROR;
-import static seedu.duke.ui.StringLib.UNRECOGNIZABLE_ERROR;
-import static seedu.duke.ui.StringLib.WELCOME_MESSAGE;
+import seedu.duke.recipe.StepList;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static seedu.duke.ui.StringLib.*;
+
 
 public class Ui {
 
-    public static String readCommand() {
+    public static String readNextLine() {
         Scanner in = new Scanner(System.in);
-        return in.nextLine();
+        return in.nextLine().trim();
     }
     public static void showFindResults(ArrayList<Recipe> list, String keywords) {
         if (list.size() == 0) {
@@ -67,6 +47,43 @@ public class Ui {
             i += 1;
         }
         System.out.println();
+    }
+
+    /**
+     * Prints contents of a specified IngredientList
+     * @param recipeIngredientList IngredientList to be displayed
+     */
+    public static void showRecipeIngredientList(IngredientList recipeIngredientList) {
+        System.out.println("\nINGREDIENTS:\n");
+        for (int i = 0; i < recipeIngredientList.getMaxIngredientIndex(); ++i) {
+            System.out.println(i+1 + ". ");
+            System.out.println(recipeIngredientList.getIngredient(i).toString());
+        }
+    }
+
+    /**
+     * Prints contents of a specified StepList
+     * @param recipeStepList StepList to be displayed
+     */
+    public static void showRecipeStepList(StepList recipeStepList) {
+        System.out.println("\nSTEPS:\n");
+        for (int i = 0; i < recipeStepList.getMaxStepIndex(); ++i) {
+            System.out.println(i+1 + ". ");
+            System.out.println(recipeStepList.getStep(i).toString());
+        }
+    }
+
+    /**
+     * Prints contents of a specified Recipe
+     * @param currRecipe Recipe to be displayed
+     */
+    public static void showRecipe(Recipe currRecipe) {
+        IngredientList recipeIngredientList = currRecipe.getIngredientList();
+        StepList recipeStepList = currRecipe.getStepList();
+        System.out.println(currRecipe.getName());
+        System.out.println(LINE);
+        showRecipeIngredientList(recipeIngredientList);
+        showRecipeStepList(recipeStepList);
     }
     public static void showRecipeAdded(Recipe recipe, int recipeListSize) {
         System.out.println('\n' + "Got it. I've added this recipe:");
@@ -135,6 +152,13 @@ public class Ui {
     public static void showFindingTaskErrorMessage(Exception e) {
         if (e instanceof IncompleteInputException) {
             System.out.println(MISSING_INPUTS_ERROR + e);
+        } else {
+            System.out.println(RECIPE_FINDING_DEFAULT_ERROR + e);
+        }
+    }
+    public static void showInvalidRecipeMessage(Exception e) {
+        if (e instanceof ArrayIndexOutOfBoundsException) {
+            System.out.println(RECIPE_NONEXISTENT_ERROR + e);
         } else {
             System.out.println(RECIPE_FINDING_DEFAULT_ERROR + e);
         }

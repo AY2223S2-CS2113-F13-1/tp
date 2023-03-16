@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class IngredientList {
     protected ArrayList<Ingredient> list;
 
-    protected int currIngredientNumber;
+    protected int maxIngredientIndex;
 
     /**
      * Class constructor without arguments.
      */
     public IngredientList() {
         list = new ArrayList<>();
-        currIngredientNumber = 0;
+        maxIngredientIndex = 0;
     }
 
     /**
@@ -23,11 +23,11 @@ public class IngredientList {
      */
     public IngredientList(ArrayList<Ingredient> ingredientList) {
         list = ingredientList;
-        currIngredientNumber = ingredientList.size();
+        maxIngredientIndex = ingredientList.size();
     }
 
-    public int getCurrIngredientNumber() {
-        return currIngredientNumber;
+    public int getMaxIngredientIndex() {
+        return maxIngredientIndex;
     }
 
     /**
@@ -37,7 +37,7 @@ public class IngredientList {
      */
     private void addIngredient(Ingredient item) {
         list.add(item);
-        currIngredientNumber++;
+        maxIngredientIndex++;
     }
 
     /**
@@ -47,6 +47,10 @@ public class IngredientList {
      */
     private void removeIngredient(int index) {
         list.remove(index-1);
-        currIngredientNumber--;
+        maxIngredientIndex--;
     }
+    public Ingredient getIngredient(int ingredientIndex) {
+        return list.get(ingredientIndex);
+    }
+
 }

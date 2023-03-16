@@ -11,7 +11,6 @@ import seedu.duke.ui.Ui;
  * a Recipe Manager.
  */
 public class Duke {
-
     private final RecipeList recipes;
 
     /**
@@ -41,7 +40,7 @@ public class Duke {
         boolean isExit = false;
         while (!isExit) {
             try {
-                String fullCommand = Ui.readCommand();
+                String fullCommand = Ui.readNextLine();
                 Ui.showLine();
                 Command c = Parser.parseCommands(fullCommand);
                 c.execute(recipes);
