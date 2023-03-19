@@ -150,8 +150,10 @@ public class UI {
     public void showRecipeViewed(Recipe recipe) {
         System.out.println("Here is the recipe you requested, which is a "+ recipe.getTag() + " flavour:");
         System.out.println("name: " + recipe.getName());
+        System.out.println(LINE);
         IngredientList ingredients = recipe.getIngredientList();
         ingredients.showList();
+        System.out.println(LINE);
         StepList steps = recipe.getStepList();
         steps.showStepList();
     }

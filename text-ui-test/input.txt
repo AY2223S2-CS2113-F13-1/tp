@@ -1,21 +1,34 @@
 list
 add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese
+chop beef
+add potatoes
+end
 add n/MaLaXiangGuo i/Beef, Mutton, Mushrooms t/Chinese
+end
 list
 add n/Spaghetti i/Pasta, Tomato Sauce, Cheese t/Italian
+add spaghetti
+end
 add n/Carbonara i/Pasta, Bacon, Egg, Cheese t/Italian
+end
 add n/Beijing Duck i/Duck, Pancakes t/Chinese
+end
 list
 delete 1
 list
+view 2
 delete 3
 list
 add n/XiaoLongBao i/Pork, Soup, Dumplings t/Chinese
+end
 add n/Guilinggao i/Tea, Milk, Sugar t/Chinese
+brew tea
+end
 list
 view 1
 clear
 list
 add n/Guilinggao i/Tea, Milk, Sugar t/Chinese
+end
 save
 exit

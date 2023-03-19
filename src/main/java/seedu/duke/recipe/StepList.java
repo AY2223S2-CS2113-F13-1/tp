@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class StepList {
     protected ArrayList<Step> stepList;
-
     protected int currStepNumber;
 
     /**

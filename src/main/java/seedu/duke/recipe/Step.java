@@ -8,4 +8,8 @@ public class Step {
     public String getStep() {
         return description;
     }
+    @Override
+    public String toString() {
+        return description;
+    }
 }

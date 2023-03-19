@@ -3,10 +3,7 @@ package seedu.duke.command;
 
 import seedu.duke.exceptions.IncompleteInputException;
 import seedu.duke.parser.Parser;
-import seedu.duke.recipe.IngredientList;
-import seedu.duke.recipe.Recipe;
-import seedu.duke.recipe.RecipeList;
-import seedu.duke.recipe.StepList;
+import seedu.duke.recipe.*;
 import seedu.duke.storage.Storage;
 import seedu.duke.ui.UI;
 
@@ -68,7 +65,10 @@ public class Command {
                 String recipeName = parsed.get(0);
                 IngredientList ingredientLists = Parser.parseIngredients(parsed.get(1));
                 String recipeTag = parsed.get(2);
-                StepList recipeSteps = new StepList();
+                System.out.println("DEBUG: recipeSteps start");
+                //StepList recipeSteps = new StepList();
+                StepList recipeSteps = Parser.parseSteps(ui);
+                System.out.println("DEBUG: recipeSteps end");
                 recipeList.addNewRecipe(new Recipe(recipeName, recipeTag, ingredientLists, recipeSteps));
                 ui.showRecipeAdded(recipeList.getNewestRecipe(), recipeList.getCurrRecipeNumber());
             } catch (Exception e) {

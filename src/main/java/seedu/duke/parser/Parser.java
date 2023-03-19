@@ -5,8 +5,15 @@ import seedu.duke.command.CommandType;
 import seedu.duke.exceptions.IncompleteInputException;
 import seedu.duke.recipe.Ingredient;
 import seedu.duke.recipe.IngredientList;
+import seedu.duke.recipe.Step;
+import seedu.duke.recipe.StepList;
+import seedu.duke.ui.UI;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
+
+import static seedu.duke.ui.StringLib.STEP_INPUT_END;
 
 public class Parser {
 
@@ -106,6 +113,21 @@ public class Parser {
             parsed.add(new Ingredient(ingredient));
         }
         return new IngredientList(parsed);
+    }
+
+    public static StepList parseSteps(UI ui) {
+        ArrayList<Step> parsed = new ArrayList<>();
+        String inputDescription;
+        while (true) {
+            inputDescription = ui.readCommand();
+            if (inputDescription.equals(STEP_INPUT_END)) {
+                break;
+            }
+            Step inputStep = new Step(inputDescription);
+            System.out.println(inputStep);
+            parsed.add(inputStep);
+        }
+        return new StepList(parsed);
     }
 
 }

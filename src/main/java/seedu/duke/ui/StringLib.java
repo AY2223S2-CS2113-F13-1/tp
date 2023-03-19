@@ -113,4 +113,5 @@ public interface StringLib {
     String STEP_LIST = "Step List";
     String IMPORT_END_RECIPE = "End";
     String RECIPE_SAVED = "\nRecipe list saved!";
+    String STEP_INPUT_END = "end";
 }
