@@ -33,7 +33,7 @@ public class StepList {
         currStepNumber--;
     }
     public void showStepList() {
-        System.out.println("There are " + currStepNumber + "steps in the list");
+        System.out.println("There are " + currStepNumber + " steps in the list");
         for (int i = 0; i < currStepNumber; i++) {
             System.out.println((i+1) + ". " + stepList.get(i).getStep());
         }

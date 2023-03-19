@@ -146,6 +146,7 @@ Here are 3 ingredients in the list:
 1. Beef
 2. Mutton
 3. Mushrooms
+There are 0 steps in the list
 __________________________________________________________
 __________________________________________________________
 
