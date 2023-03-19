@@ -8,6 +8,7 @@ import seedu.duke.parser.Parser;
 import seedu.duke.recipe.IngredientList;
 import seedu.duke.recipe.Recipe;
 import seedu.duke.recipe.RecipeList;
+import seedu.duke.recipe.StepList;
 import seedu.duke.ui.UI;
 import seedu.duke.command.CommandType;
 
@@ -31,7 +32,8 @@ public class UITest {
             String recipeName = parsed.get(0);
             IngredientList ingredientLists = Parser.parseIngredients(parsed.get(1));
             String recipeTag = parsed.get(2);
-            ArrayList<String> recipeSteps = new ArrayList<>();
+            StepList recipeSteps = new StepList();
+            //TODO: add recipeSteps parser
             Recipe recipe = new Recipe(recipeName, recipeTag, ingredientLists, recipeSteps);
             recipeList.addNewRecipe(recipe);
         } catch (Exception e) {

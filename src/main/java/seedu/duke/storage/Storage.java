@@ -1,17 +1,15 @@
 package seedu.duke.storage;
 
-import seedu.duke.recipe.Ingredient;
-import seedu.duke.recipe.IngredientList;
-import seedu.duke.recipe.Recipe;
-import seedu.duke.recipe.RecipeList;
+import seedu.duke.recipe.*;
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static seedu.duke.ui.StringLib.INGREDIENT_LIST;
-import static seedu.duke.ui.StringLib.STEPS;
+
+import static seedu.duke.ui.StringLib.*;
 
 
 /**
@@ -64,9 +62,9 @@ public class Storage {
             for (Ingredient ingredient : dish.getIngredientList().getList()) {
                 saveWriter.write( ingredient.getName() + "\n");
             }
-            saveWriter.write(STEPS + "\n");
-            for (String step : dish.getSteps()) {
-                saveWriter.write(step + "\n");
+            saveWriter.write(STEP_LIST + "\n");
+            for (Step step : dish.getStepList().getList()) {
+                saveWriter.write(step.getStep() + "\n");
             }
             saveWriter.close();
         }
@@ -90,24 +88,28 @@ public class Storage {
             String name = reader.nextLine();
             String tag = reader.nextLine();
             ArrayList<Ingredient> ingredientList = new ArrayList<>();
-            ArrayList<String> stepList = new ArrayList<>();
+            ArrayList<Step> stepList = new ArrayList<>();
             while (reader.hasNextLine()) {
                 String ingredient = reader.nextLine();
-                if (ingredient.equals(STEPS)) {
-                    break;
-                } else if (ingredient.equals(INGREDIENT_LIST)) {
+            if (ingredient.equals(INGREDIENT_LIST)) {
                 } else {
                     ingredientList.add(new Ingredient(ingredient));
                 }
             }
             while (reader.hasNextLine()) {
-                stepList.add(reader.nextLine());
+                String step = reader.nextLine();
+                if (step.equals(IMPORT_END_RECIPE)) {
+                    break;
+                } else if (step.equals(STEP_LIST)) {
+                } else {
+                    stepList.add(new Step(step));
+                }
             }
             recipeList.add(new Recipe(
                     name,
                     tag,
                     new IngredientList(ingredientList),
-                    stepList));
+                    new StepList(stepList)));
         }
         return recipeList;
     }

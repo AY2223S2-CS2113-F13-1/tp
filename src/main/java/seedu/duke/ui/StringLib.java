@@ -110,6 +110,7 @@ public interface StringLib {
             + "\"Example use : \\\"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\\\" \\n \\n\"";
     String RECIPE_CLEARED_MESSAGE = "\nAll recipes have been cleared!";
     String INGREDIENT_LIST = "Ingredient list";
-    String STEPS = "Steps";
+    String STEP_LIST = "Step List";
+    String IMPORT_END_RECIPE = "End";
     String RECIPE_SAVED = "\nRecipe list saved!";
 }

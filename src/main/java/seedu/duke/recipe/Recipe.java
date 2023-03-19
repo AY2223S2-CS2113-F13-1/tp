@@ -4,23 +4,26 @@ import java.util.ArrayList;
 
 public class Recipe {
     protected IngredientList ingredientList;
-    protected ArrayList<String> steps;
+    protected StepList stepList;
     protected String name;
     protected String tag;
 
-    public Recipe(String inputName, String inputTag, IngredientList inputList, ArrayList<String> inputSteps) {
+    public Recipe(String inputName, String inputTag, IngredientList inputList, StepList inputSteps) {
         name = inputName;
         tag = inputTag;
         ingredientList = inputList;
-        steps = inputSteps;
+        stepList = inputSteps;
     }
 
     public IngredientList getIngredientList() {
         return ingredientList;
     }
+    public StepList getStepList() {
+        return stepList;
+    }
 
-    public ArrayList<String> getSteps() {
-        return steps;
+    public StepList getSteps() {
+        return stepList;
     }
 
     public String getName() {
