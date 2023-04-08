@@ -10,14 +10,14 @@ public interface StringLib {
             + "  \\_/\\__,_|___/\\__\\___|  \\___/|_|   \\_|  |_/\\___/|_| |_| |_| |___/  | |  \\_/  \\___/\\_|  |_/| |"
             + "\n"
             + "                                                                     \\_\\                  /_/\n";
-    String WELCOME_MESSAGE = "\nHELLLOO there! I am\n "
+    String WELCOME_MESSAGE = "\nHELLO there! I am\n "
             + LOGO + '\n'
             + "Your personal recipes assistant!\n"
             + "What can I do for you today?\n\n"
             + "You can start by adding recipes to a recipe list that I can generate,"
             + " simply follow the format below:\n\n"
             + "Add recipe : \"add n/<insert recipe name> i/<insert ingredients with \", \" separation> "
-            + "t/<insert cuisine>\"\n\n"
+            + "t/<insert cuisine> s/<insert number of steps>\"\n\n"
             + "If you wish to view the full list of commands, simply type \"help\"!\n";
     String HELP = "\nHelp is here! You may find the list of commands below useful. \n \n \n"
             + "COMMANDS LIST: \n \n \n"
@@ -28,17 +28,21 @@ public interface StringLib {
             + "## Add ## \n"
             + "Description : Adds a new recipe to the list. \n"
             + "Format      : \"add n/<insert recipe name> i/<insert ingredients with \", \" separation> "
-            + "t/<insert cuisine>\"\n"
-            + "Example use : \"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\" \n \n"
-            + "## Edit ## \n"
-            + "Description : Edits a recipe in the list. \n"
-            + "Format      : \"edit n/<insert recipe name>\"\n"
-            + "Example use : \"edit n/Hotpot\" \n \n"
+            + "t/<insert cuisine> s/<insert number of steps in recipe>\"\n"
+            + "Example use : \"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese s/4\" \n \n"
+            + "## Edit Step ## \n"
+            + "Description : Edits the steps of a recipe in the list. \n"
+            + "Format      : \"editstep <insert recipe index>\"\n"
+            + "Example use : \"editstep 1\" \n \n"
+            + "## Edit Ingredient ## \n"
+            + "Description : Edits the ingredients of a recipe in the list. \n"
+            + "Format      : \"editingredient <insert recipe index>\"\n"
+            + "Example use : \"editingredient 1\" \n \n"
             + "## View ## \n"
             + "Description : Displays the details of a particular recipe from the recipe list. "
             + "Requires either the recipe name or index as the input. \n"
-            + "Format      : \"view n/<insert recipe name>\" or \"view <insert recipe index on list>\" \n"
-            + "Example use : \"view n/Hotpot\" or \"view 1\" \n \n"
+            + "Format      : \"view <insert recipe name>\" or \"view <insert recipe index on list>\" \n"
+            + "Example use : \"view Hotpot\" or \"view 1\" \n \n"
             + "## Find ## \n"
             + "Description : Finds all recipes names containing keywords inputted in the description. "
             + "Requires keywords as an input. \n"
@@ -58,7 +62,7 @@ public interface StringLib {
             + "Format      : \"exit\" \n"
             + "Example use : \"exit\" \n \n \n"
             + "Hope this list has been informational to you! \n";
-    String EXIT_MESSAGE = "\nBye. Hope to see you again soon!\n";
+    String EXIT_MESSAGE = "\nBye. Hope to see you again soon!";
     String EMPTY_LIST_MESSAGE = "\nMATE! Your list is empty!\n";
     String NO_MATCHING_FIND_RESULTS_MESSAGE = "\nSeems like you do not have any recipes matching: ";
     String CREATING_NEW_FILE_AND_DIRECTORY = "\nNew file and directory will be created.";
@@ -79,9 +83,17 @@ public interface StringLib {
 
     String RECIPE_ADDING_DEFAULT_ERROR = "\nError in adding recipe!"
             + "\nException occurred: ";
+    String RECIPE_ADDING_TO_DEFAULT_ERROR = "\nError in adding element to recipe!"
+            + "\nException occurred: ";
+    String RECIPE_DELETING_FROM_DEFAULT_ERROR = "\nError in deleting element from recipe!"
+            + "\nException occurred: ";
     String RECIPE_DELETING_DEFAULT_ERROR = "\nError in deleting recipe!"
             + "\nException occurred: ";
     String RECIPE_FINDING_DEFAULT_ERROR = "\nError in finding recipe!"
+            + "\nException occurred: ";
+    String RECIPE_VIEWING_DEFAULT_ERROR = "\nError in viewing recipe!"
+            + "\nException occurred: ";
+    String RECIPE_EDITING_DEFAULT_ERROR = "\nError in editing recipe!"
             + "\nException occurred: ";
     String FORMAT_CONVERT_ERROR = "\nError in inputs!"
             + "\nException occurred: The number is too big to process or the inputs contains words when "
@@ -100,7 +112,77 @@ public interface StringLib {
             + "\nException occurred: ";
     String FILE_LOADING_DEFAULT_ERROR = "\nError in loading file!"
             + "\nException occurred: ";
-
     String LINE = "__________________________________________________________";
 
+    String ADD_COMMAND_FORMAT = "\"Format: \\\"add n/<insert recipe name>"
+            + "i/<insert ingredients with \\\", \\\" separation> \"\n"
+            + "\"t/<insert cuisine>\\\"\\n\"\n"
+            + "\"Example use : \\\"add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese\\\" \\n \\n\"";
+    String RECIPE_CLEARED_MESSAGE = "\nAll recipes have been cleared!";
+    String INGREDIENT_LIST = "Ingredient list";
+    String STEP_LIST = "Step list";
+    String IMPORT_END_RECIPE = "End";
+    String RECIPE_SAVED = "\nRecipe list saved!";
+    String RECIPE_LOADED = "\nSaved recipes loaded!";
+    String MISSING_NUM = "\nPlease enter a valid number for the sum of steps!\n";
+    String MISSING_FIND_KEYWORD = "\nFind is missing KEYWORDS!";
+    String MATCHING_ITEMS = "\nHere are the matching items:";
+    String NO_MATCHES = "\nNo dishes matches what you are looking for! :(";
+    String ENTER_STEP_DESCRIPTION = "Enter the description of the step:";
+    String STEP_EDIT_SUCCESS = "Step has been edited:";
+    String STEP_VIEW_QUIT_KEYWORD = "quit";
+    String RECIPE_NO_STEPS = "This recipe has no steps!";
+    String STEPBYSTEP_PROMPT = "Do you want to view step-by-step?\nEnter \"yes\" if so";
+    String STEPBYSTEP_EARLY_TERMINATION_PROMPT = "To exit recipe view, type \"quit\"\nElse, press enter to continue";
+    String ENTER_INGREDIENT_DESCRIPTION = "Enter the description of the ingredient:";
+    String INGREDIENT_EDIT_SUCCESS = "Ingredient has been edited:";
+    String NO_INGREDIENTS_ERROR = "There are no ingredients to edit!";
+    String NO_STEPS_ERROR = "There are no steps to edit!";
+    String INPUT_STEPS_INDEX_EXCEEDED = "Input index exceeds the number of steps!";
+    String INPUT_INGREDIENTS_INDEX_EXCEEDED = "Input index exceeds the number of ingredients!";
+    String INVALID_STEP = "\nThe step you have entered is invalid!\n" +
+            "Please enter a valid step below:";
+    String INVALID_RANGE = "The range you have entered for the index is invalid!\n\n" +
+            "Valid Range: ";
+    String DUPLICATE_RECIPE_NAMES_ERROR = "There appears to be duplicate recipe names that exist. \nPlease use the " +
+            "FIND feature to get the specific recipe index to be viewed instead.\n";
+    String NO_MATCHING_RECIPE_ERROR = "There are no matching recipes found.\n";
+    String SAVE_SUCCESS = "\nData saved successfully!";
+    String EDIT_TYPE_ERROR = "\nPlease enter a edit type (--s/--i) !\n";
+    String EDIT_INGREDIENT_ERROR = "\nPlease keep format as edit --i INDEXOFRECIPE INDEXOFINGREDIENT i/NEWINGREDIENT\n";
+    String INVALID_RECIPE_INDEX = "\nPlease enter a valid recipe index!";
+    String INVALID_INGREDIENT_INDEX = "\nPlease enter a valid ingredient index!";
+    String EDIT_STEP_ERROR = "\nPlease keep format as edit --s INDEXOFRECIPE INDEXOFSTEP s/NEWSTEP\n";
+    String INVALID_STEP_INDEX = "\nPlease enter a valid step index!";
+    String POS_INT = "\nPlease enter a valid index!";
+
+    String INVALID_INPUT_VALID_RANGE_PREFIX = "Invalid Input! Valid Range: ";
+    String MISSING_INGREDIENT_INPUT = "Ingredient cannot be empty!";
+    String EMPTY_STRING = "";
+    String[] FORBIDDEN_CHARS = {"!","@","#","$","%","&","*","(",")","+",",",
+                                ".","/",":",";","<","=",">","?","[","]","^","_","`","{","|","}"};
+    String SAVE_SEPARATOR = "#######";
+    String INVALID_ADD_TO_RECIPE_DESCRIPTION = "OOPS!!!\n" +
+            "Looks like the description of the command is invalid!\n" +
+            "To add elements to the recipe, please follow the following layout:\n" +
+            "\naddtorecipe --[s/i] id/[index] desc/[description of step/ingredient]";
+    String INDEX_REQUEST = "Enter step index below:";
+    String DUPLICATE_INGREDIENT_ERROR = "The ingredient you wish to add is already on " +
+                                        "the ingredient list and hence cannot be added.";
+    String DUPLICATE_STEP_ERROR = "The step you wish to add is already on " +
+                                    "the step list and hence cannot be added.";
+    String STEP_ADD_SUCCESS = "The step has been successfully added to the step list!";
+    String INGREDIENT_ADD_SUCCESS = "The ingredient has been successfully added to the ingredient list!";
+    String EMPTY_STEP_DESCRIPTION_MESSAGE = "Description of step cannot be empty!";
+    String EMPTY_INGREDIENT_DESCRIPTION_MESSAGE = "Description of ingredient cannot be empty!";
+    String STEP_QUIT_MESSAGE = "The step was not added to the step list!";
+    String INVALID_DELETE_FROM_RECIPE_DESCRIPTION = "OOPS!!!\n" +
+            "Looks like the description of the command is invalid!\n" +
+            "To add elements to the recipe, please follow the following format:\n" +
+            "\ndeletefromrecipe --[s/i] id/[index]";
+    String INGREDIENT_DELETE_SUCCESS = "The ingredient has been successfully deleted from the ingredient list!";
+    String STEP_DELETE_SUCCESS = "The step has been successfully deleted from the step list!";
+    String EMPTY_STEP_ID_MESSAGE = "Index of step cannot be empty!";
+    String EMPTY_INGREDIENT_ID_MESSAGE = "Index of ingredient cannot be empty!";
+    String END_OF_RECIPE_STEPS = "\nEnd of Recipe Steps!";
 }

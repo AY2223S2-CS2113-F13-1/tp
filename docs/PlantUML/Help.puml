@@ -1,0 +1,31 @@
+@startuml Help
+box Manager #White
+Actor User
+
+participant ":UI" as UI
+participant ":Duke" as Duke
+participant ":Parser" as Parser
+participant ":Command" as Command1
+end box
+
+activate Duke
+
+User -> Duke : "help"
+Duke -> Parser : "parseCommand()"
+activate Parser
+Parser --> Duke
+deactivate Parser
+Duke -> Command1 : "execute()"
+activate Command1
+Command1 -> UI : "showHelp()"
+activate UI
+UI -> User : HELP message shown
+UI --> Command1
+deactivate UI
+Command1 --> Duke
+deactivate Command1
+Duke -> Command1 : delete
+destroy Command1
+
+
+@enduml

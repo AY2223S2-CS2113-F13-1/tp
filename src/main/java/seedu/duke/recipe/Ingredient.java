@@ -6,4 +6,7 @@ public class Ingredient {
     public Ingredient(String inputName) {
         name = inputName;
     }
+    public String getName() {
+        return name;
+    }
 }

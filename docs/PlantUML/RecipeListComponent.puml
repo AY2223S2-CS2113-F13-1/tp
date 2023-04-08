@@ -1,0 +1,68 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class RecipeList {
+    - recipeList:ArrayList<Recipe>
+    - currRecipeNumber: int
+    + getRecipeList(): ArrayList<Recipe>
+    + getCurrRecipeNumber(): int
+    + getRecipeFromList(itemNum:int): Recipe
+    + getNewestRecipe(): Recipe
+    + addNewRecipe(recipe: Recipe)
+    + removeRecipe(index: int)
+    + clearRecipeList()
+}
+class Recipe {
+    - ingredientList: IngredientList
+    - stepList: StepList
+    - name: String
+    - tag: String
+    + getIngredientList(): IngredientList
+    + getStepList(): StepList
+    + getName(): Name
+    + getTag(): String
+    + toString(): String
+}
+
+class IngredientList {
+    - list: ArrayList<Ingredient>
+    - currIngredientNumber: int
+    + getCurrIngredientNumber(): int
+    + addIngredient(item: Ingredient)
+    + removeIngredient(index: int)
+    + showList()
+    + getList(): ArrayList<Ingredient>
+}
+
+class Ingredient {
+    - name: String
+    + getName(): String
+
+}
+
+class StepList {
+    - stepList: ArrayList<Step>
+    - currStepNumber: int
+    + addStep(step: Step)
+    + removeStep(stepIndex: int)
+    + showStepList()
+    + getList(): ArrayList<Step>
+}
+
+class Step {
+    - description: String
+    + getStep(): String
+    + toString(): String
+}
+class RecipeListEmptyError {
+}
+class Exceptions {
+}
+RecipeList -> "*" Recipe : stores >
+Recipe -> "1" IngredientList : contains >
+Recipe --> "1" StepList : contains >
+IngredientList --> Ingredient : stores >
+StepList --> Step : stores >
+RecipeList ..> RecipeListEmptyError : uses
+RecipeListEmptyError --|> Exceptions : extends
+@enduml

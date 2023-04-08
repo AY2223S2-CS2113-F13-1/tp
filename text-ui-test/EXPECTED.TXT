@@ -1,10 +1,11 @@
 
 Directory for file saving created.
-Save file created.
 
 __________________________________________________________
 
-HELLLOO there! I am
+Saved recipes loaded!
+
+HELLO there! I am
  _____         _         _____  __  ___  ___                _         _______ ________  ____
 |_   _|       | |       |  _  |/ _| |  \/  |               ( )       / /_   _|  _  |  \/  \ \
   | | __ _ ___| |_ ___  | | | | |_  | .  . | ___  _ __ ___ |/ ___   | |  | | | | | | .  . || |
@@ -18,13 +19,401 @@ What can I do for you today?
 
 You can start by adding recipes to a recipe list that I can generate, simply follow the format below:
 
-Add recipe : "add n/<insert recipe name> i/<insert ingredients with ", " separation> t/<insert cuisine>"
+Add recipe : "add n/<insert recipe name> i/<insert ingredients with ", " separation> t/<insert cuisine> s/<insert number of steps>"
 
 If you wish to view the full list of commands, simply type "help"!
 
 __________________________________________________________
+
+MATE! Your list is empty!
+
+__________________________________________________________
+
+Please enter the description of step 1:
+
+Please enter the description of step 2:
+
+Please enter the description of step 3:
+
+Please enter the description of step 4:
+
+Got it. I've added this recipe:
+  [Chinese] Hotpot
+Now you have 1 recipes in the list.
+
+__________________________________________________________
+The ingredient has been successfully added to the ingredient list!
+__________________________________________________________
+There are 4 ingredients in the list:
+1. Beef
+2. Potatoes
+3. Carrots
+4. deez nuts
+Enter step index below:
+The ingredient has been successfully deleted from the ingredient list!
+__________________________________________________________
+Description of ingredient cannot be empty!
+__________________________________________________________
+OOPS!!!
+Looks like the description of the command is invalid!
+To add elements to the recipe, please follow the following layout:
+
+addtorecipe --[s/i] id/[index] desc/[description of step/ingredient]
+__________________________________________________________
+There are 4 steps in the list
+1. chop beef
+2. add potatoes
+3. add carrots
+4. cook 5 minutes
+Enter step index below:
+The step has been successfully deleted from the step list!
+__________________________________________________________
+There are 3 steps in the list
+1. chop beef
+2. add carrots
+3. cook 5 minutes
+Enter step index below:
+
+Please enter a valid step index!
+Valid range: 1 to 4
+Enter step index below:
+The step was not added to the step list!
+__________________________________________________________
+There are 3 steps in the list
+1. chop beef
+2. add carrots
+3. cook 5 minutes
+Enter step index below:
+
+Please enter a valid step index!
+Valid range: 1 to 3
+Enter step index below:
+The step was not added to the step list!
+__________________________________________________________
+OOPS!!!
+Looks like the description of the command is invalid!
+To add elements to the recipe, please follow the following format:
+
+deletefromrecipe --[s/i] id/[index]
+__________________________________________________________
+There are 3 steps in the list
+1. chop beef
+2. add carrots
+3. cook 5 minutes
+Enter step index below:
+The step has been successfully added to the step list!
+__________________________________________________________
+There are 4 steps in the list
+1. chop beef
+2. user left your channel
+3. add carrots
+4. cook 5 minutes
+Enter step index below:
+
+Please enter a valid step index!
+Valid range: 1 to 5
+Enter step index below:
+The step was not added to the step list!
+__________________________________________________________
+Description of step cannot be empty!
+__________________________________________________________
+OOPS!!!
+Looks like the description of the command is invalid!
+To add elements to the recipe, please follow the following layout:
+
+addtorecipe --[s/i] id/[index] desc/[description of step/ingredient]
+__________________________________________________________
+
+Error in adding element to recipe!
+Exception occurred: The range you have entered for the index is invalid!
+
+Valid Range: 1 to 1
+
+__________________________________________________________
+
+Error in adding element to recipe!
+Exception occurred: The range you have entered for the index is invalid!
+
+Valid Range: 1 to 1
+
+__________________________________________________________
+
+Please enter the description of step 1:
+
+Got it. I've added this recipe:
+  [Chinese] MaLaXiangGuo
+Now you have 2 recipes in the list.
+
+__________________________________________________________
+
+RECIPE LIST
+
+1. [Chinese] Hotpot
+2. [Chinese] MaLaXiangGuo
+
+__________________________________________________________
+
+Please enter the description of step 1:
+
+Got it. I've added this recipe:
+  [Italian] Spaghetti
+Now you have 3 recipes in the list.
+
+__________________________________________________________
+
+Got it. I've added this recipe:
+  [Italian] Carbonara
+Now you have 4 recipes in the list.
+
+__________________________________________________________
+
+Got it. I've added this recipe:
+  [Chinese] Beijing Duck
+Now you have 5 recipes in the list.
+
+__________________________________________________________
+
+Here are the matching items:
+  [Chinese] Beijing Duck [Index: 5]
+__________________________________________________________
+
+No dishes matches what you are looking for! :(
+__________________________________________________________
+
+Find is missing KEYWORDS!
+__________________________________________________________
+
+RECIPE LIST
+
+1. [Chinese] Hotpot
+2. [Chinese] MaLaXiangGuo
+3. [Italian] Spaghetti
+4. [Italian] Carbonara
+5. [Chinese] Beijing Duck
+
+__________________________________________________________
+
+Noted. I've removed this recipe:
+  [Chinese] Hotpot
+Now you have 4 recipes in the list.
+
+__________________________________________________________
+
+RECIPE LIST
+
+1. [Chinese] MaLaXiangGuo
+2. [Italian] Spaghetti
+3. [Italian] Carbonara
+4. [Chinese] Beijing Duck
+
+__________________________________________________________
+Here is the recipe you requested, which is Italian flavour:
+name: Spaghetti
+__________________________________________________________
+There are 3 ingredients in the list:
+1. Pasta
+2. Tomato Sauce
+3. Cheese
+__________________________________________________________
+There are 1 steps in the list
+Do you want to view step-by-step?
+Enter "yes" if so
+To exit recipe view, type "quit"
+Else, press enter to continue
+1. add spaghetti
+
+End of Recipe Steps!
+__________________________________________________________
+
+Noted. I've removed this recipe:
+  [Italian] Carbonara
+Now you have 3 recipes in the list.
+
+__________________________________________________________
+
+RECIPE LIST
+
+1. [Chinese] MaLaXiangGuo
+2. [Italian] Spaghetti
+3. [Chinese] Beijing Duck
+
+__________________________________________________________
+
+Got it. I've added this recipe:
+  [Chinese] XiaoLongBao
+Now you have 4 recipes in the list.
+
+__________________________________________________________
+
+Please enter the description of step 1:
+
+Got it. I've added this recipe:
+  [Chinese] Guilinggao
+Now you have 5 recipes in the list.
+
+__________________________________________________________
+
+RECIPE LIST
+
+1. [Chinese] MaLaXiangGuo
+2. [Italian] Spaghetti
+3. [Chinese] Beijing Duck
+4. [Chinese] XiaoLongBao
+5. [Chinese] Guilinggao
+
+__________________________________________________________
+
+Here are the matching items:
+  [Chinese] MaLaXiangGuo [Index: 1]
+  [Chinese] Beijing Duck [Index: 3]
+  [Chinese] XiaoLongBao [Index: 4]
+  [Chinese] Guilinggao [Index: 5]
+__________________________________________________________
+
+No dishes matches what you are looking for! :(
+__________________________________________________________
+
+Find is missing KEYWORDS!
+__________________________________________________________
+Here is the recipe you requested, which is Chinese flavour:
+name: MaLaXiangGuo
+__________________________________________________________
+There are 3 ingredients in the list:
+1. Beef
+2. Mutton
+3. Mushrooms
+__________________________________________________________
+There are 1 steps in the list
+Do you want to view step-by-step?
+Enter "yes" if so
+There are 1 steps in the list
+1. chop beef
+__________________________________________________________
+There are 1 steps in the list
+1. chop beef
+Which step do you want to edit?
+Type 'quit' to exit the edit view
+Enter the description of the step:
+Step has been edited:
+1. go to haidilao
+__________________________________________________________
+There are 1 steps in the list
+1. go to haidilao
+Which step do you want to edit?
+Type 'quit' to exit the edit view
+
+Please enter a valid index!
+Valid range: 1 to 1
+__________________________________________________________
+There are 1 steps in the list
+1. go to haidilao
+Which step do you want to edit?
+Type 'quit' to exit the edit view
+Input index exceeds the number of steps!
+Valid Range: 1 to 1
+__________________________________________________________
+Here is the recipe you requested, which is Chinese flavour:
+name: MaLaXiangGuo
+__________________________________________________________
+There are 3 ingredients in the list:
+1. Beef
+2. Mutton
+3. Mushrooms
+__________________________________________________________
+There are 1 steps in the list
+Do you want to view step-by-step?
+Enter "yes" if so
+There are 1 steps in the list
+1. go to haidilao
+__________________________________________________________
+There are 3 ingredients in the list:
+1. Beef
+2. Mutton
+3. Mushrooms
+Which ingredient do you want to edit?
+Type 'quit' to exit the edit view
+
+Error in editing recipe!
+Exception occurred: Invalid Input! Valid Range: 1 to 3
+__________________________________________________________
+
+Please enter the description of step 1:
+
+Please enter the description of step 2:
+
+Please enter the description of step 3:
+
+Please enter the description of step 4:
+
+Got it. I've added this recipe:
+  [Western] IceLemonTea
+Now you have 6 recipes in the list.
+
+__________________________________________________________
+
+RECIPE LIST
+
+1. [Chinese] MaLaXiangGuo
+2. [Italian] Spaghetti
+3. [Chinese] Beijing Duck
+4. [Chinese] XiaoLongBao
+5. [Chinese] Guilinggao
+6. [Western] IceLemonTea
+
+__________________________________________________________
+
+Error in viewing recipe!
+Exception occurred: The range you have entered for the index is invalid!
+
+Valid Range: 1 to 6
+
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+Please enter a valid index!
+Valid range: 1 to 6
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+OOPS!!! I'm sorry, but I don't know what that means
+Try typing "help" to see the valid commands you can use!
+
+__________________________________________________________
+
+All recipes have been cleared!
+__________________________________________________________
+
+MATE! Your list is empty!
+
 __________________________________________________________
 
 Bye. Hope to see you again soon!
-
 __________________________________________________________

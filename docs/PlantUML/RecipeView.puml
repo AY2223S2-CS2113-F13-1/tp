@@ -1,0 +1,37 @@
+@startuml Recipe View
+box Viewer #White
+Actor User
+participant ":Duke" as Duke
+participant ":Parser" as Parser
+participant ":Command" as Command
+participant ":RecipeList" as RecipeList
+participant ":UI" as UI
+participant ":IngredientList" as IngredientList
+participant ":StepList" as StepList
+
+end box
+activate Duke
+User -> Duke : "view 1"
+Duke -> Parser : "parseCommand()"
+activate Parser
+Parser --> Duke
+deactivate Parser
+Duke -> Command : "execute()"
+activate Command
+Command -> RecipeList : "getRecipeFromList()"
+activate RecipeList
+RecipeList --> Command
+deactivate RecipeList
+Command -> UI : "showRecipeViewed()"
+activate UI
+UI -> IngredientList : "getIngredientList()"
+activate IngredientList
+deactivate IngredientList
+UI -> StepList : "getStepList()"
+activate StepList
+deactivate StepList
+deactivate UI
+deactivate Command
+
+
+@enduml

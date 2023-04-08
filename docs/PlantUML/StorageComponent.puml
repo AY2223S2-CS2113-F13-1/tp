@@ -1,0 +1,79 @@
+@startuml
+
+@startuml
+
+class Recipe {
+  - name : String
+  - tag : String
+  - ingredientList : IngredientList
+  - stepList : StepList
+  + Recipe(String name, String tag, IngredientList ingredientList, StepList stepList)
+  + getName() : String
+  + getTag() : String
+  + getIngredientList() : IngredientList
+  + getStepList() : StepList
+}
+
+class Storage {
+  - DIRECTORY_CREATED : String
+  - DIRECTORY_EXISTS : String
+  - filePath : String
+  + setFilePath(String filePath) : void
+  + createDirectory() : void
+  + writeSavedFile() : void
+  + findValidSaveFiles() : ArrayList<File>
+  + loadSaveFiles() : void
+}
+
+
+class Ingredient {
+  - name : String
+  + Ingredient(String name)
+  + getName() : String
+  + setName(String name) : void
+}
+
+class IngredientList {
+  - list : ArrayList<Ingredient>
+  + IngredientList(ArrayList<Ingredient> list)
+  + addIngredient(Ingredient ingredient) : void
+  + removeIngredient(int index) : void
+  + getList() : ArrayList<Ingredient>
+}
+
+class RecipeList {
+  - recipeList : ArrayList<Recipe>
+  + addNewRecipe(Recipe recipe) : void
+  + removeRecipe(int index) : void
+  + getRecipeList() : ArrayList<Recipe>
+}
+
+class Step {
+  - step : String
+  + Step(String step)
+  + getStep() : String
+  + setStep(String step) : void
+}
+
+class StepList {
+  - list : ArrayList<Step>
+  + StepList(ArrayList<Step> list)
+  + addStep(Step step) : void
+  + removeStep(int index) : void
+  + getList() : ArrayList<Step>
+}
+
+
+
+StepList -> Step
+Storage --> Ingredient
+Storage --> IngredientList
+Storage -> Recipe
+Storage -> RecipeList
+Storage --> Step
+Storage --> StepList
+Recipe -> IngredientList
+Recipe -> StepList
+RecipeList -> Recipe
+IngredientList -> Ingredient
+@enduml

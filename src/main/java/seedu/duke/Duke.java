@@ -4,7 +4,9 @@ import seedu.duke.command.Command;
 import seedu.duke.parser.Parser;
 import seedu.duke.recipe.RecipeList;
 import seedu.duke.storage.Storage;
-import seedu.duke.ui.Ui;
+import seedu.duke.ui.UI;
+
+import java.io.FileNotFoundException;
 
 /**
  * Represents the Recipe Manager programme. A <code>Duke</code> object corresponds to
@@ -12,7 +14,7 @@ import seedu.duke.ui.Ui;
  */
 public class Duke {
 
-    private final RecipeList recipes;
+    private final UI ui = new UI();
 
     /**
      * Class constructor specifying filePath for saving data.
@@ -22,12 +24,12 @@ public class Duke {
     public Duke(String filePath) {
         Storage.setFilePath(filePath);
         try {
-            Storage.createSavedFile();
+            Storage.createDirectory();
         } catch (Exception e) {
-            Ui.showLoadingErrorMessage(e);
+            ui.showLoadingErrorMessage(e);
         } finally {
-            recipes = new RecipeList();
-            Ui.showLine();
+            RecipeList.createRecipeList();
+            ui.showLine();
         }
     }
 
@@ -36,20 +38,25 @@ public class Duke {
      * it is terminated by the user.
      */
     public void run() {
-        Ui.showWelcome();
-        Ui.showLine();
+        try {
+            Storage.loadSaveFiles();
+            ui.showLoad();
+        } catch (FileNotFoundException e) {
+            ui.showLoadingErrorMessage(e);
+        }
+        ui.showWelcome();
+        ui.showLine();
         boolean isExit = false;
         while (!isExit) {
             try {
-                String fullCommand = Ui.readCommand();
-                Ui.showLine();
+                String fullCommand = ui.readCommand();
                 Command c = Parser.parseCommands(fullCommand);
-                c.execute(recipes);
+                c.execute(ui);
                 isExit = c.isExit();
             } catch (Exception e) {
-                Ui.showDudeMainError(e);
+                ui.showDukeMainError(e);
             } finally {
-                Ui.showLine();
+                ui.showLine();
             }
         }
     }
@@ -58,7 +65,7 @@ public class Duke {
      * The main method that runs the entire programme.
      */
     public static void main(String[] args) {
-        new Duke("data/recipeList.txt").run();
+        new Duke("data").run();
         System.exit(0);
     }
 }

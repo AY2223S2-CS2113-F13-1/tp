@@ -1,0 +1,37 @@
+@startuml ArchitectureInteract
+box Manager #White
+Actor User #Blue
+participant ":UI" as UI #Gray
+participant ":Duke" as Duke #Gold
+participant ":Parser" as Parser #Yellow
+participant ":Command" as Command #Beige
+participant ":RecipeList" as RecipeList #OrangeRed
+participant ":Storage" as Storage #DimGray
+end box
+
+activate Duke #Gold
+Duke -> UI : readCommand()
+activate UI #Gray
+User -> UI : delete 1
+UI --> Duke : delete 1
+Duke -> Parser : parseCommand(delete 1)
+activate Parser #Yellow
+Parser --> Duke
+deactivate Parser
+Duke -> Command : execute(delete,1)
+activate Command #Beige
+Command -> RecipeList : delete(1)
+activate RecipeList #OrangeRed
+RecipeList -> Storage
+activate Storage #DimGray
+Storage -> Storage : save()
+activate Storage
+Storage --> Storage
+deactivate Storage
+Storage --> RecipeList
+deactivate Storage
+RecipeList --> Command
+deactivate RecipeList
+Command --> Duke
+deactivate Command
+@enduml

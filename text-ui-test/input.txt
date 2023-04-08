@@ -1,1 +1,84 @@
+list
+add n/Hotpot i/Beef, Potatoes, Carrots t/Chinese s/4
+chop beef
+add potatoes
+add carrots
+cook 5 minutes
+addtorecipe --i id/1 desc/deez nuts
+deletefromrecipe --i id/1
+2
+addtorecipe --i id/1 desc/
+addtorecipe --i id/1
+deletefromrecipe --s id/1
+2
+addtorecipe --s id/1 desc/suggon deez
+200
+quit
+deletefromrecipe --s id/1
+0
+quit
+deletefromrecipe --s
+addtorecipe --s id/1 desc/user left your channel
+2
+addtorecipe --s id/1 desc/and I'm out too
+-4
+quit
+addtorecipe --s id/1 desc/
+addtorecipe --s id/1
+addtorecipe --s id/69 desc/iii
+addtorecipe --i id/69 desc/1i1i1i1
+add n/MaLaXiangGuo i/Beef, Mutton, Mushrooms t/Chinese s/1
+chop beef
+list
+add n/Spaghetti i/Pasta, Tomato Sauce, Cheese t/Italian s/1
+add spaghetti
+add n/Carbonara i/Pasta, Bacon, Egg, Cheese t/Italian s/0
+add n/Beijing Duck i/Duck, Pancakes t/Chinese s/0
+findname duck
+findname capybara
+findname
+list
+delete 1
+list
+view 2
+yes
+delete 3
+list
+add n/XiaoLongBao i/Pork, Soup, Dumplings t/Chinese s/0
+add n/Guilinggao i/Tea, Milk, Sugar t/Chinese s/1
+brew tea
+list
+findtag chi
+findtag nomz
+findtag
+view 1
+no
+editstep 1
+1
+go to haidilao
+editstep 1
+0
+editstep 1
+3
+view 1
+no
+editingredient 1
+0
+add n/IceLemonTea i/Lemon, Tea, Ice t/Western s/4
+brew tea
+add lemon
+add ice
+drink
+list
+view 7
+yes
+.
+.
+.
+.
+editstep 7
+3
+stir drink
+clear
+list
 exit

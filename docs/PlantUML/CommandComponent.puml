@@ -1,0 +1,26 @@
+@startuml
+
+class Command implements StringLib {
+    - type: CommandType
+    - fullDescription: String
+    + isExit(): boolean
+    + execute(recipeList: RecipeList, ui: UI): void
+}
+
+enum CommandType {
+    LIST
+    ADD
+    DELETE
+    FIND
+    CLEAR
+    VIEW
+    HELP
+    EXIT
+    UNKNOWN
+}
+
+Command --> CommandType
+IncompleteInputException --|> Exceptions : extends
+Command ..> IncompleteInputException : uses
+
+@enduml

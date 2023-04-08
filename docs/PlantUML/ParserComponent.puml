@@ -1,0 +1,23 @@
+@startuml ParserComponent
+
+class Parser implements StringLib {
+  +parseCommands(line: String): Command
+  +parseRecipe(description: String): ArrayList<String>
+  -matchString(input: String, regex: String): boolean
+  -RECIPE_WRONG_NAME_INGREDIENTS_TAG_STEP: String
+  -RECIPE_MISSING_NAME: String
+  -RECIPE_MISSING_INGREDIENTS: String
+  -RECIPE_MISSING_TAG: String
+  -RECIPE_MISSING_STEP: String
+}
+
+class IncompleteInputException {
+}
+
+class Exceptions {
+}
+
+IncompleteInputException --|> Exceptions : extends
+Parser ..> IncompleteInputException : uses
+
+@enduml

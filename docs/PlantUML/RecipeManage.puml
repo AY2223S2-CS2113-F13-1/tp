@@ -1,0 +1,129 @@
+@startuml RecipeManage 
+box Manager #White
+Actor User 
+participant ":UI" as UI
+participant ":Duke" as Duke
+participant ":Parser" as Parser
+participant ":Command" as Command1
+participant ":Command" as Command2
+participant ":Command" as Command3
+participant ":Command" as Command4
+participant ":RecipeList" as RecipeList
+end box 
+
+activate Duke
+Duke -> UI : "readCommand()"
+activate UI
+User -> UI : "add n/MaLaXiangGuo\n i/Beef, Mutton, Mushrooms t/Chinese s/1"
+UI --> Duke
+deactivate UI
+Duke -> Parser : "parseCommand()"
+activate Parser
+Parser --> Duke 
+deactivate Parser
+Duke -> Command1 : "execute()"
+activate Command1
+Command1 -> Parser : "parseRecipe()"
+activate Parser
+Parser --> Command1
+deactivate Parser
+Command1 -> Parser : "parseIngredient()"
+activate Parser
+Parser --> Command1
+deactivate Parser
+Command1 -> Parser : "parseSteps()"
+activate Parser
+loop sum of steps times  
+Parser -> UI : "readCommand()"
+activate UI
+UI --> Parser
+deactivate UI
+Parser --> Command1
+end loop
+deactivate Parser
+Command1 -> RecipeList : "addRecipe()"
+activate RecipeList
+RecipeList --> Command1
+deactivate RecipeList
+Command1 -> UI : showmessage
+activate UI
+UI -> User : successful message
+UI --> Command1
+deactivate UI
+Command1 --> Duke
+deactivate Command1
+Duke -> Command1 : delete
+destroy Command1
+Duke -> UI : readCommand()
+activate UI
+User -> UI : "list"
+UI --> Duke
+deactivate UI
+Duke -> Parser : "parseCommand()"
+activate Parser
+Parser --> Duke
+deactivate Parser
+Duke -> Command2 : "execute()"
+activate Command2
+Command2 -> RecipeList : "getRecipeList()"
+activate RecipeList
+RecipeList --> Command2
+deactivate RecipeList
+Command2 -> UI : "showRecipeList()"
+activate UI
+UI -> User : the list of recipes
+UI --> Command2
+deactivate UI
+Command2 --> Duke
+deactivate Command2
+Duke -> Command2 : delete
+destroy Command2
+Duke -> UI : "readCommand()"
+activate UI
+User -> UI : "delete 1"
+UI --> Duke
+deactivate UI
+Duke -> Parser : "parseComand()"
+activate Parser
+Parser --> Duke
+deactivate Parser
+Duke -> Command3 : "execute()"
+activate Command3
+Command3 -> RecipeList : "removeRecipe()"
+activate RecipeList
+RecipeList --> Command3
+deactivate RecipeList
+Command3 -> UI : showmessage
+activate UI
+UI -> User : successful message
+UI --> Command3
+deactivate UI
+Command3 --> Duke
+deactivate Command3
+Duke -> Command3 : delete
+destroy Command3
+Duke -> UI : "readCommand()"
+activate UI
+User -> UI : "clear"
+UI --> Duke
+deactivate UI
+Duke -> Parser : "parseComand()"
+activate Parser
+Parser --> Duke
+deactivate Parser
+Duke -> Command4 : "execute()"
+activate Command4
+Command4 -> RecipeList : "clearRecipeList()"
+activate RecipeList
+RecipeList --> Command4
+deactivate RecipeList
+Command4 -> UI : showmessage
+activate UI
+UI -> User : successful message
+UI --> Command4
+deactivate UI
+Command4 --> Duke
+deactivate Command4
+Duke -> Command4 : delete
+destroy Command4
+@enduml

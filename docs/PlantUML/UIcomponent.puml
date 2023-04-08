@@ -1,0 +1,27 @@
+@startuml UIcomponent
+class UI implements StringLib {
+    -in: Scanner
+    +UI(): void
+    +showFindResults(ArrayList<Recipe>, String): void
+    +showRecipeList(ArrayList<Recipe> list): void
+    +showRecipeAdded(Recipe, int): void
+    +showRecipeDeleted(Recipe, int): void
+    +showRecipeEdited(Recipe, int): void
+    +showRecipeListCleared(): void
+    +showWelcome(): void
+    +showExit(): void
+    +showHelp(): void
+    +showLine(): void
+    +showStepInsertMessage(int): void
+    +showDudeMainError(Exception): void
+    +showUnrecognizableErrorMessage(): void
+    +showUnrecognizableCommandErrorMessage(): void
+    +showLoadingErrorMessage(Exception): void
+    +showAddingRecipeErrorMessage(Exception): void
+    +showDeletingTaskErrorMessage(Exception, CommandType): void
+    +showFindingTaskErrorMessage(Exception): void
+    +showRecipeViewed(Recipe): void
+    +showViewingRecipeErrorMessage(Exception): void
+    +showSave(): void
+}
+@enduml
